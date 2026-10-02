@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Notes on Learning Japanese</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #24292f;
+            --text-heading: #0f1419;
+            --text-muted: #57606a;
+            --accent: #0969da;
+            --border: #e1e4e8;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #0d1117;
+                --text: #c9d1d9;
+                --text-heading: #f0f6fc;
+                --text-muted: #8b949e;
+                --accent: #58a6ff;
+                --border: #21262d;
+            }
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--bg);
+            color: var(--text);
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        main {
+            margin: 0 auto;
+            max-width: 75ch;
+            padding: 3.5rem 1.25rem 6rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
+            /* TODO: select fonts more carefully, probably should load a specific font, except on macOS in order for dagger size to be better controlled */
+            font-size: 1.05rem;
+            line-height: 1.65;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: var(--text-heading);
+            line-height: 1.25;
+            letter-spacing: -0.015em;
+        }
+
+        h1 {
+            font-size: 2.1rem;
+            margin-top: 0;
+            margin-bottom: 1.75rem;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            margin-top: 3rem;
+            margin-bottom: 0.85rem;
+            font-weight: 600;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.35rem;
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 1.35em;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        cite {
+            font-style: normal;
+            font-size: 0.9em;
+        }
+
+        ul {
+            margin: 1.25em 0;
+            padding-left: 1.3em;
+        }
+
+        ul li {
+            margin-bottom: 0.6em;
+            line-height: 1.6;
+        }
+
+        ul ul {
+            margin-top: 0.35em;
+            margin-bottom: 0.35em;
+        }
+
+        strong {
+            font-weight: 600;
+            color: var(--text-heading);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 0.95rem;
+            display: block;
+            overflow-x: auto;
+        }
+
+        th {
+            text-align: left;
+            font-weight: 600;
+            color: var(--text-heading);
+            padding: 0.6rem 0.5rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        td {
+            padding: 0.65rem 0.5rem;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+
+        td small {
+            display: block;
+            font-size: 0.85em;
+            color: var(--text-muted);
+            margin-top: 0.15rem;
+        }
+
+        tfoot td {
+            border-bottom: none;
+            color: var(--text-muted);
+            font-size: 0.85em;
+            padding-top: 0.85rem;
+        }
+
+        blockquote {
+            margin: 1.5em 0;
+            padding: 0.4em 0 0.4em 1.25em;
+            border-left: 3px solid var(--accent);
+            color: var(--text-muted);
+        }
+
+        blockquote p {
+            margin-bottom: 0.4em;
+            color: var(--text);
+        }
+
+        blockquote footer {
+            font-size: 0.9em;
+            color: var(--text-muted);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 1.75rem auto;
+        }
+
+        kbd {
+            font-family: inherit;
+            font-size: 0.85em;
+            padding: 0.15em 0.4em;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+            background-color: var(--bg);
+            box-shadow: 0 1px 0 var(--border);
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+        <h1>Notes on Learning Japanese</h1>
+
+        <p>
+            This page documents things I wish I knew when I started learning Japanese, or that I've found myself explaining to others repeatedly. It's intended as a supplement to the <a href="https://donkuri.github.io/learn-japanese/">Immersion-Based Japanese Learning</a> guide, which I recommend at least skimming first if you're unfamiliar.
+        </p>
+
+        <p>
+            I am by no means an expert; I do not intend to speak authoritatively on anything other than my personal experience. I strongly encourage you to evaluate everything for yourself.
+        </p>
+
+        <p>
+            For now, sections are presented in no particular order.
+        </p>
+
+        <div id="loc-anki-fsrs">
+            <h2><a href="#loc-anki-fsrs">§</a> Anki: FSRS</h2>
+            <p>
+                FSRS (Free Spaced Repetition Scheduler) is a modern scheduling algorithm designed to replace SM-2, Anki's current default. Using it is straightforward as long as you remember the following:
+            </p>
+
+            <ul>
+                <li>There is no practical reason to prefer the SM-2 scheduler. FSRS reduces your workload and resolves numerous well-documented issues with SM-2 at no real cost.</li>
+                <li><strong>FSRS is opt-in</strong>, meaning you must enable it yourself (at least as of September 2026).</li>
+                <li>The 90% retention default will serve you well; I strongly encourage you to direct your attention to something more productive.</li>
+                <li>
+                    <strong>Never rate a card anything other than Again/Fail unless you successfully recall <em>all</em> of the target information.</strong> FSRS can adapt to almost any rating habit, as long as it follows that rule. If you are not using the Pass/Fail plugin, it's important to understand that Hard is still only intended for when you recall all of the target information. <cite><a href="https://docs.ankiweb.net/deck-options.html#fsrs:~:text=FSRS%20can%20adapt,use%20%E2%80%9CAgain%E2%80%9D%20when%20you%20forget%20the%20information">(source)</a></cite>
+                </li>
+                <li>
+                    The optimization feature enables FSRS to train its parameters on your review history to model your memory more accurately.
+                    <ul>
+                        <li>Even without optimization, the default parameters will outperform SM-2. <cite><a href="https://github.com/open-spaced-repetition/fsrs4anki/blob/ff7c85cee735472d1c9cec0b9252d184087f74d8/docs/tutorial.md#the-ultra-short-version:~:text=In%20that%20case%2C%20use%20FSRS%20with%20the%20default%20parameters%3B%20it%27s%20still%20better%20than%20using%20the%20legacy%20SM%2D2%20algorithm">(source, no longer updated but remains true)</a></cite></li>
+                        <li>The Anki manual states that optimizing monthly is sufficient. <cite><a href="https://docs.ankiweb.net/deck-options.html#fsrs:~:text=There%20is%20no%20need%20to%20optimize%20your%20parameters%20frequently%3A%20once%20every%20month%20is%20sufficient">(source)</a></cite></li>
+                        <li>Optimizing more often isn't harmful, but will produce negligible effects. If there isn't enough data to improve the model, you'll be notified that "The FSRS parameters currently appear to be optimal." Personally, I find it easier to optimize more frequently than necessary, instead of maintaining a monthly schedule.</li>
+                        <li><strong>Keep "Reschedule cards on change" disabled.</strong> Though it may sound useful, in practice there are very few situations that warrant its use, especially in the context of Japanese self-study with FSRS already enabled. <cite><a href="https://docs.ankiweb.net/deck-options.html#reschedule-cards-on-change">(further reading)</a></cite></li>
+                    </ul>
+
+                </li>
+            </ul>
+
+
+            <p>
+                You may (rightfully) wonder: "If FSRS is apparently so much better, why isn't it the default, and why doesn't it automatically optimize?" While both sound like trivial improvements, in practice they are harder to implement than you might anticipate. These concerns are intended to be addressed in the future; you can follow their progress here:
+            </p>
+
+            <ul>
+                <li><a href="https://github.com/ankitects/anki/issues/3616">Issue #3616: Make FSRS the default?</a></li>
+                <li><a href="https://forums.ankiweb.net/t/23-10-desktop-add-a-feature-to-automatically-periodically-re-optimize-fsrs-parameters/36715">[23.10 Desktop] Add a feature to automatically periodically re-optimize FSRS parameters</a></li>
+            </ul>
+        </div>
+
+        <div id="loc-anki-cardtime">
+            <h2><a href="#loc-anki-cardtime">§</a> Anki: Review pace & the Speed Focus Mode plugin</h2>
+
+            <p>
+                Lowering your average time per card allows you to review more content in the same amount of time, or spend less time in Anki, freeing up time for immersion and making your daily study less of a chore. You can view your pace for today's session by opening the Stats screen, and looking for the "Studied X cards in Y today (Z.Zs/card)" line in the first section.
+            </p>
+
+            <p>
+                I suggest aiming to keep your pace under 10 seconds per card. For context, I average between 4 to 6 seconds per card, but you shouldn't force yourself to match that. It is counterproductive to force a faster pace; once you manage below 10 seconds/card, further progression will come with time, even without conscious effort to improve your pace. Your pace will also naturally fluctuate based on your ratio of new and review cards, mental state, and overall experience with Japanese vocab recognition.
+            </p>
+
+            <p>
+                It's important to understand that aiming for a faster pace does not come at the cost of worse retention, even if it feels like you fail more often. Spending 20 to 30 seconds on a single card is not productive, even if the target information feels like it's on the tip of your tongue, or as the Anki developers put it:
+            </p>
+
+            <blockquote cite="https://docs.ankiweb.net/studying.html#questions">
+                <p>
+                    It's okay if it takes you a little while to recall the answer, but as a general rule if you can't answer within about 10 seconds, it's probably better to move on and show the answer than keep struggling to remember.
+                </p>
+                <footer>
+                    <cite><a href="https://docs.ankiweb.net/studying.html#questions:~:text=as%20a%20general%20rule%20if%20you%20can%E2%80%99t%20answer%20within%20about%2010%20seconds%2C%20it%E2%80%99s%20probably%20better%20to%20move%20on%20and%20show%20the%20answer%20than%20keep%20struggling%20to%20remember">Anki Manual</a></cite>
+                </footer>
+            </blockquote>
+
+            <p>
+                In the time you might spend lingering on one card, you could have failed it after 5 seconds, let FSRS schedule it appropriately, and reviewed several other cards you're more familiar with. Have faith that marking a card as failed doesn't reset your progress, so "protecting" cards is counterproductive.
+            </p>
+
+            <p>
+                Of course, you can try to manage your pace solely through discipline, but stalling also frequently occurs from simply spacing out. This is why I strongly recommend the <a href="https://ankiweb.net/shared/info/1046608507">Speed Focus Mode</a> plugin.
+            </p>
+
+
+            <p>
+                With my configuration, the plugin operates in the following manner:
+            </p>
+            <ul>
+                <li>When a card appears, a 10-second timer begins. If the countdown hits zero, the card flips.</li>
+
+                <li>Once the card is flipped, an 8-second countdown starts. If you do not rate the card before time runs out, it automatically rates it as a fail.</li>
+                <li>Pressing <kbd>p</kbd> (or clicking "More time!") stops the countdown until you manually flip or rate the card.</li>
+            </ul>
+
+            <img src="speed-focus-mode.png" />
+
+            <p>
+                The benefits of this plugin stem from passive awareness of time pressure, which helps to maintain focus and requires less attention to manage pacing. Furthermore, the need to pause adds enough friction to <kbd>Alt</kbd><kbd>Tab</kbd> to improve focus. From my own experimentation and feedback from others who use the plugin, setting the timer lower than 10 seconds is not particularly useful and often hurts more than it helps, as your pace will improve with time. Similarly, it's not a failure to use the pause feature for a bit more time on a card, as long as your overall pace is good.
+            </p>
+
+            <p>
+                If you step away without pausing and the card automatically flips, then I suggest pressing <kbd>-</kbd> to bury it if it's a card you've seen prior to today, and rating the card as a fail otherwise. You may have to use <kbd>Ctrl</kbd><kbd>Z</kbd> to return to the previous card(s) if it advanced several times.
+            </p>
+
+            <p>
+                The plugin has a handful of quirks, though it works fine in practice. I intend to fork the plugin in the future, but for now the main hurdle is that it is configured through the "classic deck settings menu," accessed by clicking the gear next to the deck and <kbd>Shift</kbd>-clicking the Options menu entry.
+            </p>
+
+            <img src="speed-focus-mode-opening-settings.png" />
+
+            <p>
+                After doing so, navigating to the General tab will show you the plugin configuration:
+            </p>
+
+            <img src="speed-focus-mode-settings.png" />
+
+            <p>
+                These are my preferred defaults. Note that the option underlined in red controls the action and countdown on the back of the card. A countdown for the back of the card might seem superfluous at first, but it's easy to spend more time than you intend on the back, and it affects your pace the same as time spent on the front.
+            </p>
+
+            <p>
+                It's worth noting that Anki has a built-in auto-advance feature, but it's much less useful than the plugin. The built-in version must be re-enabled every study session, and there is no "pause the timer for this card" feature, only an overall toggle for auto-advance.
+            </p>
+
+        </div>
+
+        <div id="loc-anki-demonstrative-regularity">
+            <h2><a href="#loc-anki-demonstrative-regularity">§</a> Anki: Regularity of demonstratives</h2>
+
+            <p>
+                While studying Kaishi 1.5k, you will encounter the family of words below, known as demonstratives. Rather than memorizing them in isolation, it's much simpler to learn the pattern they follow: the prefix indicates relative distance or asks a question, while the suffix determines whether you are referring to a thing, place, direction, or manner.
+            </p>
+            <p>
+                There are nuances with how demonstratives are used in practice, such as the abstract notion of distance, but there's no point in worrying about them until you cover them in your grammar resource. Similarly, don't memorize this chart upfront; awareness of the pattern is enough to support you when studying through Anki.
+            </p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Question</th>
+                        <th>Near speaker</th>
+                        <th>Near listener</th>
+                        <th>Far from both</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>どれ<br><small>which, what</small></td>
+                        <td>これ<br><small>this</small></td>
+                        <td>それ<br><small>that</small></td>
+                        <td>あれ<br><small>that over there</small></td>
+                    </tr>
+                    <tr>
+                        <td>どの<br><small>which one</small></td>
+                        <td>この<br><small>this one</small></td>
+                        <td>その<br><small>that one</small></td>
+                        <td>あの<br><small>that one there</small></td>
+                    </tr>
+                    <tr>
+                        <td>どこ<br><small>where</small></td>
+                        <td>ここ<br><small>here</small></td>
+                        <td>そこ<br><small>there</small></td>
+                        <td>あそこ†<br><small>over there</small></td>
+                    </tr>
+                    <tr>
+                        <td>どう<br><small>how, what</small></td>
+                        <td>こう<br><small>in this manner, this kind of</small></td>
+                        <td>そう<br><small>in such manner, that way</small></td>
+                        <td>ああ*†<br><small>like that</small></td>
+                    </tr>
+                    <tr>
+                        <td>どんな<br><small>what kind of</small></td>
+                        <td>こんな*<br><small>this kind of</small></td>
+                        <td>そんな*<br><small>that kind of</small></td>
+                        <td>あんな*<br><small>that kind of</small></td>
+                    </tr>
+                    <tr>
+                        <td>どちら<br><small>which</small></td>
+                        <td>こちら<br><small>here, this way</small></td>
+                        <td>そちら<br><small>there, that way</small></td>
+                        <td>あちら*<br><small>there, that way</small></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4">* Not present in Kaishi 1.5k<br>† Irregular</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+    </main>
+</body>
+
+</html>
