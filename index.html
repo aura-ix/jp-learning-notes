@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Notes on Learning Japanese</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="fonts/fonts.css">
     <style>
         :root {
             --bg: #ffffff;
@@ -32,14 +33,52 @@
             color: var(--text);
             text-rendering: optimizeLegibility;
             -webkit-font-smoothing: antialiased;
+            font-family: "Inter", "Noto Sans JP", sans-serif;
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+            font-family: inherit;
+        }
+
+        code,
+        pre,
+        kbd,
+        samp {
+            font-family: "JetBrains Mono", monospace;
+        }
+
+        code {
+            font-size: 0.88em;
+            padding: 0.15em 0.35em;
+            border-radius: 4px;
+            background-color: rgba(127, 127, 127, 0.12);
+        }
+
+        pre {
+            background-color: rgba(127, 127, 127, 0.08);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.85rem 1rem;
+            margin: 1rem 0;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-break: break-word;
+            line-height: 1.6;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+            font-size: 0.9em;
         }
 
         main {
             margin: 0 auto;
             max-width: 75ch;
             padding: 3.5rem 1.25rem 6rem;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
-            /* TODO: select fonts more carefully, probably should load a specific font, except on macOS in order for dagger size to be better controlled */
             font-size: 1.05rem;
             line-height: 1.65;
         }
@@ -177,7 +216,6 @@
         }
 
         kbd {
-            font-family: inherit;
             font-size: 0.85em;
             padding: 0.15em 0.4em;
             border-radius: 4px;
@@ -238,7 +276,7 @@
 
             <p>Navigate to <strong>Tools → Add-ons</strong> in the menu bar, then click <strong>Get Add-ons</strong> in the top right, and copy and paste the following text in all at once:</p>
 
-            <p><code>874215009 2055492159 757527607 291119185 385888438 759844606 301910299 1610304449 738807903 876946123 266436365 1771074083 1046608507 1247171202 1779060522 580654285 1045800357 200813220 1898445115</code></p>
+            <pre><code>874215009 2055492159 757527607 291119185 385888438 759844606 301910299 1610304449 738807903 876946123 266436365 1771074083 1046608507 1247171202 1779060522 580654285 1045800357 200813220 1898445115</code></pre>
 
             <!-- TODO: copy button -->
 
