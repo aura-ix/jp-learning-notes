@@ -66,6 +66,14 @@
             font-weight: 600;
             border-bottom: 1px solid var(--border);
             padding-bottom: 0.35rem;
+            scroll-margin-top: 1.5rem;
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            margin-top: 2rem;
+            margin-bottom: 0.6rem;
+            font-weight: 600;
         }
 
         p {
@@ -177,13 +185,23 @@
             background-color: var(--bg);
             box-shadow: 0 1px 0 var(--border);
         }
+
+        header {
+            margin-bottom: 2rem;
+        }
     </style>
 </head>
 
 <body>
 
     <main>
-        <h1>Notes on Learning Japanese</h1>
+        <header>
+            <h1>Notes on Learning Japanese</h1>
+            <div>
+                <strong>Last major revision:</strong>
+                <time datetime="2026-10-04">October 4th, 2026</time> · Added Anki setup guide
+            </div>
+        </header>
 
         <p>
             This page documents things I wish I knew when I started learning Japanese, or that I've found myself explaining to others repeatedly. It's intended as a supplement to the <a href="https://donkuri.github.io/learn-japanese/">Immersion-Based Japanese Learning</a> guide, which I recommend at least skimming first if you're unfamiliar.
@@ -197,8 +215,118 @@
             For now, sections are presented in no particular order.
         </p>
 
-        <div id="loc-anki-fsrs">
-            <h2><a href="#loc-anki-fsrs">§</a> Anki: FSRS</h2>
+        <section>
+            <h2 id="anki-initial-setup"><a href="#anki-initial-setup">§</a> Anki: Initial setup</h2>
+            <p>
+                The instructions below streamline the Anki setup from the Immersion-Based Japanese Learning guide, producing an identical configuration (other than the addition of Speed Focus Mode).
+            </p>
+
+
+            <h3>Downloads & Installation</h3>
+
+            <ol>
+                <li><a href="https://apps.ankiweb.net/">Download the Anki installer</a> for your platform (or use your package manager if you are on Linux).</li>
+                <li>Download the <code>.apkg</code> file for the latest <a href="https://github.com/donkuri/kaishi/releases">Kaishi 1.5k release</a>.</li>
+                <li>Run through the Anki installer.</li>
+                <!-- TODO: what do users actually see on the first launch of anki? -->
+                <li>Open Anki, and drag the <code>.apkg</code> file you downloaded into the Anki window.</li>
+                <li>The import window will appear, simply hit the "Import" button in the top right.</li>
+                <li>Then, you will be presented with a summary of the notes added, which you can close.</li>
+            </ol>
+
+            <h3>Add-ons</h3>
+
+            <p>Navigate to <strong>Tools → Add-ons</strong> in the menu bar, then click <strong>Get Add-ons</strong> in the top right, and copy and paste the following text in all at once:</p>
+
+            <p><code>874215009 2055492159 757527607 291119185 385888438 759844606 301910299 1610304449 738807903 876946123 266436365 1771074083 1046608507 1247171202 1779060522 580654285 1045800357 200813220 1898445115</code></p>
+
+            <!-- TODO: copy button -->
+
+            <p>Then click <strong>OK</strong>, and restart Anki.</p>
+            <h3>Preferences</h3>
+
+            <ol>
+                <li>Navigate to <strong>Tools → Preferences</strong> in the menu bar.</li>
+                <li>In the <strong>Review</strong> tab, set <strong>Next day starts at</strong> to 7 hours past midnight, and set <strong>Learn ahead limit</strong> to 999 minutes.</li>
+                <li>Then, close the preferences window.</li>
+            </ol>
+
+            <h3>Deck settings</h3>
+
+            <p>Click <strong>Kaishi 1.5k</strong> to open the deck overview page. Then click the <strong>Options</strong> button at the bottom, and change the following settings:</p>
+
+            <ul>
+                <li>
+                    <strong>Daily limits</strong>
+                    <!-- TODO: advice for new cards/day -->
+                    <ul>
+                        <li>Maximum reviews/day: <code>9999</code></li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>New cards</strong>
+                    <ul>
+                        <li>Learning steps: <code>1m 5m 1h</code></li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Lapses</strong>
+                    <ul>
+                        <li>Relearning steps: <code>3m</code></li>
+                        <li>Leech threshold: <code>6</code></li>
+                        <li>Leech action: Suspend</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Display order</strong>
+                    <ul>
+                        <li>New/review order: Show after reviews</li>
+                        <li>Interday learning/review order: Show after reviews</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>FSRS</strong>
+                    <ul>
+                        <li>Enable FSRS: On (no further changes needed)</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Timers</strong>
+                    <ul>
+                        <li>Maximum review seconds: <code>30</code></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <p>Then click <strong>Save</strong> in the top right.</p>
+
+            <p>Now, <kbd>Shift</kbd>-click the same <strong>Options</strong> button to open the legacy options menu. Then, navigate to the <strong>General</strong> tab and set the following values:</p>
+
+            <ul>
+                <li>Automatically show answer after <strong>10</strong> seconds</li>
+                <li>Automatically <strong>Rate again</strong> after <strong>8</strong> seconds</li>
+            </ul>
+
+            <p>Then click <strong>OK</strong>.</p>
+
+            <!--
+            TODO: sync configuration for backups
+            TODO: more consistent typesetting across document
+            TODO: <summary> explanations for reasoning behind each setting
+            TODO: explain that you might want to make your own preset for JP stuff specifically if you 
+            TODO: Reference https://docs.ankiweb.net/getting-started.html#key-concepts
+            TODO: explain how to use each major plugin w/link to addon page, e.g. desirable advanced browser configuration
+            TODO: download both radical & kaishi deck at once
+            TODO: mention kaishi configuration options
+            TODO: https://ankiweb.net/shared/info/757527607 autoreorder suggests a different plugin now
+            TODO: Do we need FSRS helper, JPMN manager, Edit field during review (Cloze), Progress Graphs and Stats for Learned and Matured Cards, True Retention by Card Maturity Simplified, etc
+            TODO: do those plugins from the Donkuri zip have custom config in them? (seems like it's just autoreorder, ankiconnect, and ajtjapanese config for asbplayer but w/an out of date URL), but need to make sure. probably can just move specific config to relevant setup section for asbplayer or mining etc.
+            -->
+
+        </section>
+
+        <section>
+            <h2 id="anki-fsrs"><a href="#anki-fsrs">§</a> Anki: FSRS</h2>
             <p>
                 FSRS (Free Spaced Repetition Scheduler) is a modern scheduling algorithm designed to replace SM-2, Anki's current default. Using it is straightforward as long as you remember the following:
             </p>
@@ -222,7 +350,6 @@
                 </li>
             </ul>
 
-
             <p>
                 You may (rightfully) wonder: "If FSRS is apparently so much better, why isn't it the default, and why doesn't it automatically optimize?" While both sound like trivial improvements, in practice they are harder to implement than you might anticipate. These concerns are intended to be addressed in the future; you can follow their progress here:
             </p>
@@ -231,10 +358,10 @@
                 <li><a href="https://github.com/ankitects/anki/issues/3616">Issue #3616: Make FSRS the default?</a></li>
                 <li><a href="https://forums.ankiweb.net/t/23-10-desktop-add-a-feature-to-automatically-periodically-re-optimize-fsrs-parameters/36715">[23.10 Desktop] Add a feature to automatically periodically re-optimize FSRS parameters</a></li>
             </ul>
-        </div>
+        </section>
 
-        <div id="loc-anki-cardtime">
-            <h2><a href="#loc-anki-cardtime">§</a> Anki: Review pace & the Speed Focus Mode plugin</h2>
+        <section>
+            <h2 id="anki-cardtime"><a href="#anki-cardtime">§</a> Anki: Review pace & the Speed Focus Mode plugin</h2>
 
             <p>
                 Lowering your average time per card allows you to review more content in the same amount of time, or spend less time in Anki, freeing up time for immersion and making your daily study less of a chore. You can view your pace for today's session by opening the Stats screen, and looking for the "Studied X cards in Y today (Z.Zs/card)" line in the first section.
@@ -306,10 +433,10 @@
                 It's worth noting that Anki has a built-in auto-advance feature, but it's much less useful than the plugin. The built-in version must be re-enabled every study session, and there is no "pause the timer for this card" feature, only an overall toggle for auto-advance.
             </p>
 
-        </div>
+        </section>
 
-        <div id="loc-anki-demonstrative-regularity">
-            <h2><a href="#loc-anki-demonstrative-regularity">§</a> Anki: Regularity of demonstratives</h2>
+        <section>
+            <h2 id="demonstrative-regularity"><a href="#demonstrative-regularity">§</a> Anki: Regularity of demonstratives</h2>
 
             <p>
                 While studying Kaishi 1.5k, you will encounter the family of words below, known as demonstratives. Rather than memorizing them in isolation, it's much simpler to learn the pattern they follow: the prefix indicates relative distance or asks a question, while the suffix determines whether you are referring to a thing, place, direction, or manner.
@@ -371,7 +498,7 @@
                     </tr>
                 </tfoot>
             </table>
-        </div>
+        </section>
 
     </main>
 </body>
